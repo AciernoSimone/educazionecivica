@@ -9,7 +9,7 @@ var wblRoute = require('./routes/wbl');
 
 
 var app = express();
-app.use(cors());
+app.use(new cors());
 
 app.use(logger('dev'));
 app.use(express.json());

@@ -5,7 +5,7 @@ var cors = require ('cors');
 const MongoClient = require('mongodb').MongoClient;
 const uri = 'mongodb+srv://simoneacierno:Gattone324@cluster0.ccutz.mongodb.net/WBL?retryWrites=true&w=majority';
 
-/* GET data.animalia */
+
 router.get('/', function (req, res, next) {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     client.connect(err => {
@@ -18,5 +18,21 @@ router.get('/', function (req, res, next) {
     });
 });
 
+router.get('/wbl_search/:index', function (req, res, next) {
+    console.log(req.params); //Leggo i parametri passati all'url
+    index = req.params.index;
+    const uri = 'mongodb+srv://simoneacierno:Gattone324@cluster0.ccutz.mongodb.net/WBL?retryWrites=true&w=majority';
+    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    client.connect(err => {
+        const collection = client.db("WBL").collection("WBL");
+        // eseguo una find sulla collection
+        collection.find({ 'WBL INDEX': `${index}` }).toArray((err, result) => {
+            if (err) console.log(err.message); //Se c'è qualche errore lo stampo
+            else res.send(result);
+            client.close(); //Quando ho terminato la find chiudo la sessione con il db
+        }); //Eseguo la query e passo una funzione di callback
+
+    });
+});
 
 module.exports = router;
