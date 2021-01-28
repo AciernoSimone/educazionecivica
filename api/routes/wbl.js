@@ -10,9 +10,9 @@ router.get('/', function (req, res, next) {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     client.connect(err => {
         const collection = client.db("WBL").collection("WBL");
-        collection.find({}).toArray((err, result) => {
+        collection.find({}).limit(10).toArray((err, result) => {
             if (err) console.log(err.message);
-            else { res.send(result); console.log(result); }
+            else { res.send(result); }
             client.close();
         });
     });

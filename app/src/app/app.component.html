@@ -1,1 +1,28 @@
-<button type="button" (click)="loadWBL()">LOAD WBL</button>
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+
+  <ul class="navbar-nav">
+    <li>
+      <a>WBL</a>
+    </li>
+
+    <li class="nav-item">
+      <a class= 'btn btn-primary' (click)="loadWBL()">Carica</a>
+      <div class="card-columns">
+        <div *ngFor="let wbl of results" class= 'card'>
+            <div class="card-body text-center">
+              <h1 class= 'card-title'>{{wbl.Code}}</h1>
+              <p class='card-text'>{{wbl.Region}}</p>
+            </div>
+          </div>
+        </div>
+
+    </li>
+
+    <button (click)="load10restourantes()">Carica 10 ristoranti</button>
+
+<div *ngFor="let restourante of results">
+  <hr>
+  <h1>  Nome: {{restourante.name}}</h1>
+  <p>  Città: {{restourante.borough}}</p>
+  <p>  Tipo di cucina: {{restourante.cuisine}}</p>
+</div>
