@@ -16,7 +16,7 @@ export class AppComponent {
 
   loadWBL()
   {
-    this.obs = this.http.get("https://3000-d766b76c-7489-417f-af03-6da1477f474f.ws-eu03.gitpod.io/wbl");
+    this.obs = this.http.get("https://3000-e74ec83b-22bc-4aa5-9575-eba46812fe7f.ws-eu03.gitpod.io/wbl");
     this.obs.subscribe(this.getData);
 
   }

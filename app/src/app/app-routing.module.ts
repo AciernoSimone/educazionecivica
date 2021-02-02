@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { WblComponent } from './wbl/wbl.component';
 
-const routes: Routes = [];
+
+const routes: Routes = [
+  { path: 'wbl', component: WblComponent },
+
+  { path: '',   redirectTo: '/home', pathMatch: 'full' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
