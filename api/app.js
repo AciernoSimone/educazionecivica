@@ -2,12 +2,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var cors = require ('cors');
+var cors = require('cors');
 
 var indexRoute = require('./routes/index');
 var wblRoute = require('./routes/wbl');
-var codeRoute = require('./routes/code');
-
+var wpRoute = require('./routes/wp');
 
 var app = express();
 app.use(new cors());
@@ -20,7 +19,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRoute);
 app.use('/wbl', wblRoute);
-app.use('/code', codeRoute);
+app.use('/wp', wpRoute);
+
 
 
 module.exports = app;

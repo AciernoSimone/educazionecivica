@@ -5,11 +5,12 @@ const MongoClient = require('mongodb').MongoClient; //Importo la libreria mongod
 const uri = "mongodb+srv://simoneacierno:Gattone324@cluster0.ccutz.mongodb.net/WBL?retryWrites=true&w=majority";
 
 router.get('/', function (req, res, next) {
+    
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     client.connect(err => {
-        const collection = client.db("WBL").collection("WBL"); //Mi connetto alla collection movies
+        const collection = client.db("WBL").collection("WP"); //Mi connetto alla collection movies
         // eseguo una find sulla collection
-        collection.find().limit(500).toArray((err, result) => {
+        collection.find({YEAR:{$in:['2017']}}).limit(500).toArray((err, result) => {
             if (err) console.log(err.message); //Se c'è qualche errore lo stampo
             else res.send(result);
             client.close(); //Quando ho terminato la find chiudo la sessione con il db
