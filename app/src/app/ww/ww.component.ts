@@ -5,13 +5,13 @@ import { Observable } from 'rxjs';
 import { ParamMap } from '@angular/router';
 
 
-
 @Component({
-  selector: 'app-wbl',
-  templateUrl: './wbl.component.html',
-  styleUrls: ['./wbl.component.css']
+  selector: 'app-ww',
+  templateUrl: './ww.component.html',
+  styleUrls: ['./ww.component.css']
 })
-export class WblComponent {
+export class WwComponent {
+
     query: string;
   apiServiceObs: Observable<Object>;
   results: any;
@@ -25,9 +25,9 @@ export class WblComponent {
 
 
 
-  loadWBL() : void
+      loadWW() : void
   {
-    this.apiServiceObs = this.api.getWbl();
+    this.apiServiceObs = this.api.getWW();
     this.apiServiceObs.subscribe(this.getData);
 
   }
@@ -38,20 +38,20 @@ export class WblComponent {
     this.convertData(this.results)
   }
 
-  convertData(data){
+    convertData(data){
 
         for (var i in data) {
+      const year = parseFloat(data[i]["WBL Report Year"]);
+      const yn = data[i]["Can a woman get a job in the same way as a man?"];
       const region = data[i]["Region"];
-      const index = parseFloat(data[i]["WBL INDEX"]);
-      this.myData.push([region,index]);
+      this.myData.push([year,region, yn]);
       }
       console.log(this.myData)
     }
 
 
-  myType = 'AreaChart';
+  myType = 'Table';
 myData = [
   ];
-
 
 }
