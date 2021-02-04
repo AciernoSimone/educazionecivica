@@ -7,20 +7,15 @@
   </div>
 </div>
 
-<h1>Indice WBL per ogni regione</h1>
+<h1>Parità di salario:</h1>
 
 <div class="container-fluid">
 
-<google-chart *ngIf = 'myData.length > 0' [type]="myType" [data]="myData" [width]= 2000 [height]=500 ></google-chart>
+<google-chart *ngIf = 'myData.length > 0' [type]="myType" [data]="myData" [width]= 2000 [height]=600 ></google-chart>
 
 
 
-<button (click)="loadWBL()">Carica</button>
+<button (click)="loadpay()">Carica</button>
 
-<div *ngFor="let wbl of results">
-  <hr>
-  <p> Region: {{wbl.Region}} </p>
-  <p>  Index: {{wbl["WBL INDEX"]}}</p>
 
-</div>
 </div>

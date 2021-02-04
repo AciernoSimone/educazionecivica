@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
   constructor(private http: HttpClient) { }
 
-  baseUrl = `https://3001-e3f09857-4caf-4e32-a8ee-9c94568d11de.ws-eu03.gitpod.io`;
+  baseUrl = `https://3000-be790659-dddc-4757-9b14-dc219ff10d3a.ws-eu03.gitpod.io`;
 
   getWbl() {
     const url = `${this.baseUrl}/wbl`;
@@ -29,7 +29,19 @@ export class ApiService {
     return obsTracks;
   }
 
+        getWp() {
+    const url = `${this.baseUrl}/wp`;
+    let obsTracks = this.http.get(url);
+    console.log(obsTracks);
+    return obsTracks;
+  }
 
+          getpay() {
+    const url = `${this.baseUrl}/pay`;
+    let obsTracks = this.http.get(url);
+    console.log(obsTracks);
+    return obsTracks;
+  }
 
 
 }

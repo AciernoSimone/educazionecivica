@@ -24,9 +24,9 @@ export class CodeComponent {
 
 
 
-  loadWBL() : void
+  loadWp() : void
   {
-    this.apiServiceObs = this.api.getWbl();
+    this.apiServiceObs = this.api.getWp();
     this.apiServiceObs.subscribe(this.getData);
 
   }
@@ -40,16 +40,15 @@ export class CodeComponent {
   convertData(data){
 
         for (var i in data) {
-      const region = data[i]["Economy"];
-      const year = data[i]["WBL Report Year"];
-      const index = parseFloat(data[i]["WBL INDEX"]);
-      this.myData.push([region,year,index]);
+      const region = data[i]["Country"];
+      const year = parseFloat(data[i]["Value"]);
+      this.myData.push([region,year]);
       }
       console.log(this.myData)
     }
 
 
-  myType = 'PieChart';
+  myType = 'AreaChart';
 myData = [
   ];
 

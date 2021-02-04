@@ -25,9 +25,9 @@ export class WblComponent {
 
 
 
-  loadWBL() : void
+  loadpay() : void
   {
-    this.apiServiceObs = this.api.getWbl();
+    this.apiServiceObs = this.api.getpay();
     this.apiServiceObs.subscribe(this.getData);
 
   }
@@ -41,8 +41,8 @@ export class WblComponent {
   convertData(data){
 
         for (var i in data) {
-      const region = data[i]["Region"];
-      const index = parseFloat(data[i]["WBL INDEX"]);
+      const region = data[i]["World Bank Names"];
+      const index = parseFloat(data[i]["Getting Paid"]);
       this.myData.push([region,index]);
       }
       console.log(this.myData)
