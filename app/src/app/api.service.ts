@@ -29,5 +29,12 @@ export class ApiService {
     return obsTracks;
   }
 
+        getCode() {
+    const url = `${this.baseUrl}/code`;
+    let obsTracks = this.http.get(url);
+    console.log(obsTracks);
+    return obsTracks;
+  }
+
 
 }

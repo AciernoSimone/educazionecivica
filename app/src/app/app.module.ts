@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { WblComponent } from './wbl/wbl.component';
 import { WwComponent } from './ww/ww.component';
 import { RelComponent } from './rel/rel.component';
+import { CodeComponent } from './code/code.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WblComponent,
     WwComponent,
-    RelComponent
+    RelComponent,
+    CodeComponent
 
   ],
   imports: [

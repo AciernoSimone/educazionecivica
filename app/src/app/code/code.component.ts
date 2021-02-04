@@ -4,13 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ParamMap } from '@angular/router';
 
-
 @Component({
-  selector: 'app-ww',
-  templateUrl: './ww.component.html',
-  styleUrls: ['./ww.component.css']
+  selector: 'app-code',
+  templateUrl: './code.component.html',
+  styleUrls: ['./code.component.css']
 })
-export class WwComponent {
+export class CodeComponent {
 
     query: string;
   apiServiceObs: Observable<Object>;
@@ -25,9 +24,9 @@ export class WwComponent {
 
 
 
-      loadWW() : void
+  loadWBL() : void
   {
-    this.apiServiceObs = this.api.getWW();
+    this.apiServiceObs = this.api.getWbl();
     this.apiServiceObs.subscribe(this.getData);
 
   }
@@ -38,20 +37,21 @@ export class WwComponent {
     this.convertData(this.results)
   }
 
-    convertData(data){
+  convertData(data){
 
         for (var i in data) {
+      const region = data[i]["Economy"];
       const year = data[i]["WBL Report Year"];
-      const yn = data[i]["Can a woman get a job in the same way as a man?"];
-      const region = data[i]["Region"];
-      this.myData.push([year,region, yn]);
+      const index = parseFloat(data[i]["WBL INDEX"]);
+      this.myData.push([region,year,index]);
       }
       console.log(this.myData)
     }
 
 
-  myType = 'Table';
+  myType = 'PieChart';
 myData = [
   ];
+
 
 }
