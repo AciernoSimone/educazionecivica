@@ -3,19 +3,28 @@
 
 <div class="row">
   <div class="col bg-primary">
-    <h1 style="float:left;" class="text-muted"><a class="mr-5 text-body" href="#" [routerLink]="['/rel']">Home</a><a class="mr-5 text-body" href="#" [routerLink]="['/wbl']">WBL</a><a class="mr-5 text-body" href="#" [routerLink]="['/ww']">Work</a><a class="mr-5 text-body" href="#" [routerLink]="['/code']">Pay</a></h1>
+    <h1 style="float:left;" class="text-muted"><a class="mr-5 text-body" href="#" [routerLink]="['/rel']">Home</a><a class="mr-5 text-body" href="#" [routerLink]="['/wbl']">WBL</a><a class="mr-5 text-body" href="#" [routerLink]="['/ww']">Work</a><a class="mr-5 text-body" href="#" [routerLink]="['/code']">Politics</a></h1>
   </div>
 </div>
 
-<h1>Parità di salario:</h1>
+<h1>WBL INDEX nei paesi europei(2020):</h1>
 
 <div class="container-fluid">
 
-<google-chart *ngIf = 'myData.length > 0' [type]="myType" [data]="myData" [width]= 2000 [height]=600 ></google-chart>
 
 
 
-<button (click)="loadpay()">Carica</button>
+      <button (click)="loadWBL()">Carica</button>
+
+      <google-chart *ngIf = 'myData.length > 0' [type]="myType" [data]="myData" [width]= 1500 [height]=800 ></google-chart>
+
+
+
+
+
+
+
+
 
 
 </div>

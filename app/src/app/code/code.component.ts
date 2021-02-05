@@ -24,9 +24,9 @@ export class CodeComponent {
 
 
 
-  loadWp() : void
+  loadpay() : void
   {
-    this.apiServiceObs = this.api.getWp();
+    this.apiServiceObs = this.api.getpay();
     this.apiServiceObs.subscribe(this.getData);
 
   }
@@ -40,7 +40,7 @@ export class CodeComponent {
   convertData(data){
 
         for (var i in data) {
-      const region = data[i]["Country"];
+      const region = data[i]["LOCATION"];
       const year = parseFloat(data[i]["Value"]);
       this.myData.push([region,year]);
       }
@@ -48,7 +48,7 @@ export class CodeComponent {
     }
 
 
-  myType = 'AreaChart';
+  myType = 'BarChart';
 myData = [
   ];
 

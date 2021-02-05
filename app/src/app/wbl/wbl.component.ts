@@ -18,6 +18,7 @@ export class WblComponent {
 
 
 
+
     constructor(
     public api: ApiService,
     private route: ActivatedRoute,
@@ -25,9 +26,10 @@ export class WblComponent {
 
 
 
-  loadpay() : void
+
+  loadWBL() : void
   {
-    this.apiServiceObs = this.api.getpay();
+    this.apiServiceObs = this.api.getWbl();
     this.apiServiceObs.subscribe(this.getData);
 
   }
@@ -38,12 +40,14 @@ export class WblComponent {
     this.convertData(this.results)
   }
 
+
   convertData(data){
 
         for (var i in data) {
-      const region = data[i]["World Bank Names"];
-      const index = parseFloat(data[i]["Getting Paid"]);
-      this.myData.push([region,index]);
+      const region = data[i]["Region"];
+
+      const index = parseFloat(data[i]['Overall Gender Equality Index']);
+      this.myData.push([region, index]);
       }
       console.log(this.myData)
     }
@@ -52,6 +56,10 @@ export class WblComponent {
   myType = 'AreaChart';
 myData = [
   ];
+
+
+
+
 
 
 }

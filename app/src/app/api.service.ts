@@ -7,10 +7,10 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
   constructor(private http: HttpClient) { }
 
-  baseUrl = `https://3000-be790659-dddc-4757-9b14-dc219ff10d3a.ws-eu03.gitpod.io`;
+  baseUrl = `https://3000-indigo-hornet-n4id8uyh.ws-eu03.gitpod.io`;
 
   getWbl() {
-    const url = `${this.baseUrl}/wbl`;
+    const url = `${this.baseUrl}/wbl/${name}`;
     let obsTracks = this.http.get(url);
     console.log(obsTracks);
     return obsTracks;
