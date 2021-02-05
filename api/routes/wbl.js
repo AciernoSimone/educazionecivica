@@ -5,7 +5,9 @@ const MongoClient = require('mongodb').MongoClient; //Importo la libreria mongod
 const uri = "mongodb+srv://simoneacierno:Gattone324@cluster0.ccutz.mongodb.net/WBL?retryWrites=true&w=majority";
 
 router.get('/', function (req, res, next) {
+    
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    data = req.params.data;
     client.connect(err => {
         const collection = client.db("WBL").collection("WBL"); //Mi connetto alla collection movies
         // eseguo una find sulla collection

@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
     client.connect(err => {
         const collection = client.db("WBL").collection("pay"); //Mi connetto alla collection movies
         // eseguo una find sulla collection
-        collection.find().limit(500).toArray((err, result) => {
+        collection.find({TIME:{$in:['2019']}}).toArray((err, result) => {
             if (err) console.log(err.message); //Se c'è qualche errore lo stampo
             else res.send(result);
             client.close(); //Quando ho terminato la find chiudo la sessione con il db
